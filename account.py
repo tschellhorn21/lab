@@ -8,8 +8,8 @@ class Account:
         :param name: Account's owners name.
         :param amount: Amount in owners account
         '''
-        self.account_name = name
-        self.account_balance = amount
+        self.__account_name = name
+        self.__account_balance = amount
 
     def deposit(self, amount) -> bool:
         '''
@@ -20,7 +20,7 @@ class Account:
         if amount <= 0:
             return False
         else:
-            self.account_balance += amount
+            self.__account_balance += amount
             return True
 
     def withdraw(self, amount) -> bool:
@@ -29,10 +29,10 @@ class Account:
         :param amount: Amount to be withdrawn from account.
         :return: boolean for if the withdrawal was successful or not.
         '''
-        if amount > self.account_balance or amount <= 0:
+        if amount > self.__account_balance or amount <= 0:
             return False
         else:
-            self.account_balance -= amount
+            self.__account_balance -= amount
             return True
 
     def get_balance(self) -> float:
@@ -40,11 +40,11 @@ class Account:
         Method to access balance of an account
         :return: accounts balance
         '''
-        return self.account_balance
+        return self.__account_balance
 
     def get_name(self) -> str:
         '''
         Method to access name of an account
         :return: name on account
         '''
-        return self.account_name
+        return self.__account_name
